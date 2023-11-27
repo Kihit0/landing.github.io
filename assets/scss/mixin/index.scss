@@ -1,0 +1,18 @@
+@mixin font($fontName: "Inter-Regular", $size: 16px, $weight) {
+  font-family: $fontName;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin flex($positionX: flex-start, $positionY: flex-start) {
+  display: flex;
+  justify-content: $positionX;
+  align-items: $positionY;
+}
+
+@mixin sphere($w, $h, $colorGradient) {
+  @extend %border50;
+  width: $w;
+  height: $h;
+  background: $colorGradient;
+}

@@ -1,0 +1,173 @@
+.header {
+  padding-top: 30px;
+  width: 100%;
+  position: relative;
+  z-index: 20;
+
+  @media screen and (max-width: $tabletsScreen) {
+    background: $bgColor;
+    padding-top: 0;
+  }
+
+  &__wrapper {
+    padding: 1rem 0;
+  }
+
+  &__navigation {
+    @include flex(space-between, center);
+
+    &-logo {
+      width: 20%;
+      position: relative;
+
+      @include flex(flex-start, center);
+
+      .header__logo {
+        width: 35px;
+        height: 24px;
+
+        margin-right: 10px;
+
+        &-text {
+          width: 95px;
+          height: 24px;
+        }
+      }
+
+      &::after {
+        content: "крупный интегратор CRM в Росcии и ещё 8 странах";
+        position: absolute;
+        @include font("Montserrat-Light", 10, 300);
+        width: 165px;
+        bottom: -30px;
+        left: 0;
+        font-size: 10px;
+      }
+
+      @media screen and (max-width: $smallScreen) {
+        margin-right: 30px;
+      }
+
+      @media screen and (max-width: $tabletsScreen) {
+        display: none;
+      }
+    }
+
+    &-ul {
+      @include flex(flex-start, center);
+
+      &__li {
+        @include font("Inter-Medium", 16px, 500);
+        @extend %flex;
+        margin-right: 30px;
+        position: relative;
+
+        @media screen and (max-width: $tabletsScreen){
+          @include font("Inter-Medium", 12px, 500);
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &-link {
+      flex: 1;
+      .header__navigation-ul {
+        a {
+          display: inline-block;
+          position: relative;
+
+          transition: all 0.2s ease;
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background: $mainTextColor;
+            bottom: -2px;
+            opacity: 1;
+            width: 0;
+            height: 2px;
+            transition: all 0.2s ease;
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+
+        &__li {
+          &:nth-child(2)::before {
+            content: "";
+            position: absolute;
+            @include sphere(83px, 83px, rgba(255, 208, 208, 0.54));
+
+            background: linear-gradient(
+              to right bottom,
+              rgba(255, 208, 208, 0.54) 0%,
+              rgba(212, 93, 93, 0.26) 59%,
+              rgba(167, 49, 49, 0.25) 78%,
+              rgba(130, 25, 25, 0.25) 100%
+            );
+            filter: drop-shadow(3px 6px 27px rgba(223, 125, 125, 0.25))
+              blur(1px);
+
+            top: 25px;
+            left: -30px;
+
+            @media screen and (max-width: $tabletsScreen) {
+              display: none;
+            }
+          }
+
+          &:last-child::after {
+            content: "";
+            position: absolute;
+            @include sphere(55px, 55px, rgba(236, 208, 255, 0.64));
+
+            background: linear-gradient(
+              to right bottom,
+              rgba(236, 208, 255, 0.64) 0%,
+              rgba(161, 93, 207, 0.24) 59.67%,
+              rgba(118, 49, 164, 0.21) 78.59%,
+              rgba(86, 24, 128, 0.23) 100%
+            );
+            filter: drop-shadow(3px 6px 27px rgba(177, 118, 217, 0.25))
+              blur(2px);
+
+            top: -45px;
+            right: -200px;
+
+            @media screen and (max-width: $smallScreen) {
+              right: -100px;
+            }
+
+            @media screen and (max-width: $tabletsScreen) {
+              display: none;
+            }
+          }
+        }
+        @media screen and (max-width: $tabletsScreen) {
+          width: 100%;
+          @include flex(space-between);
+        }
+      }
+    }
+
+    &-contact {
+      justify-content: flex-end;
+      .header__navigation-ul {
+        &__li-icon {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @media screen and (max-width: $smallScreen) {
+        display: none;
+      }
+    }
+  }
+}

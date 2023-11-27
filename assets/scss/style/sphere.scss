@@ -1,0 +1,73 @@
+@mixin sphere($w, $h, $colorGradient) {
+  @extend %border50;
+  width: $w;
+  height: $h;
+  background: $colorGradient;
+}
+
+.figure {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+
+    display: none;
+
+    @media screen and (max-width: $tabletsScreen) {
+      display: block;
+    }
+  .sphere {
+    position: relative;
+
+    &__big {
+      @include sphere(117px, 117px, rgba(255, 208, 208, 0.54));
+
+      background: linear-gradient(
+        to right bottom,
+        rgba(255, 208, 208, 0.54) 0%,
+        rgba(212, 93, 93, 0.26) 59%,
+        rgba(167, 49, 49, 0.25) 78%,
+        rgba(130, 25, 25, 0.25) 100%
+      );
+      filter: drop-shadow(3px 6px 27px rgba(223, 125, 125, 0.25)) blur(1px);
+
+      top: 15px;
+      left: 35%;
+    }
+
+    &__purple {
+      @include sphere(40px, 40px, rgba(236, 208, 255, 0.64));
+
+      background: linear-gradient(
+        to right bottom,
+        rgba(236, 208, 255, 0.64) 0%,
+        rgba(161, 93, 207, 0.24) 59.67%,
+        rgba(118, 49, 164, 0.21) 78.59%,
+        rgba(86, 24, 128, 0.23) 100%
+      );
+      filter: drop-shadow(3px 6px 27px rgba(177, 118, 217, 0.25)) blur(2px);
+
+      top: 35%;
+      left: 95%;
+    }
+
+    &__small {
+      @include sphere(43px, 43px, rgba(255, 208, 208, 0.48));
+
+      background: linear-gradient(
+        to right bottom,
+        rgba(255, 208, 208, 0.48) 0%,
+        rgba(212, 93, 93, 0.25) 59.67%,
+        rgba(167, 49, 49, 0.26) 78.59%,
+        rgba(130, 25, 25, 0.23) 100%
+      );
+      filter: drop-shadow(3px 6px 27px rgba(223, 125, 125, 0.25)) blur(2.5px);
+
+      top:  85%;
+      left: 10%;
+    }
+  }
+}

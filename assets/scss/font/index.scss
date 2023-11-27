@@ -1,0 +1,22 @@
+@use "sass:meta";
+
+@mixin fontRegister($font, $args...) {
+
+  @each $name, $weight in meta.keywords($args) {
+    @font-face {
+      font-family: $font + #{$name};
+      src: url("../assets/font/" + $font + #{$name} + ".ttf") format("truetype");
+      font-weight: $weight;
+    }
+  }
+}
+
+@include fontRegister(
+  "Inter-",
+  $Regular: 400,
+  $Medium: 500,
+  $Bold: 700,
+  $Black: 900
+);
+
+@include fontRegister("Montserrat-", $Light: 300, $Regular: 400);

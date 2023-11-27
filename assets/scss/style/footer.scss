@@ -1,0 +1,131 @@
+.footer {
+  padding-bottom: 20px;
+
+  @media screen and (max-width: $tabletsScreen) {
+    padding-top: 30px;
+    padding-bottom: 0;
+
+    position: relative;
+    z-index: 20;
+
+    background-color: $bgColor;
+  }
+
+  &__table {
+    @include flex(space-between);
+    padding-bottom: 30px;
+
+    &-item {
+      width: 25%;
+
+      h4 {
+        @include font("Inter-Bold", 14px, 700);
+        color: #656566;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      &__ul {
+        &-li {
+          margin-bottom: 10px;
+          a {
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        width: 45%;
+
+        div {
+          @include flex();
+
+          .footer__table-item__ul {
+            width: 40%;
+            @media screen and (max-width: $tabletsScreen) {
+              width: 50%;
+            }
+          }
+        }
+
+        @media screen and (max-width: $tabletsScreen) {
+          width: 100%;
+        }
+      }
+
+      &:nth-child(3) {
+        width: 30%;
+        text-align: end;
+
+        .footer__table-item__ul {
+          &-li {
+            &:nth-child(2) {
+              div {
+                @include flex(flex-end);
+
+                a {
+                  margin-left: 10px;
+                }
+
+                @media screen and (max-width: $tabletsScreen) {
+                  @include flex(flex-start);
+                }
+              }
+            }
+
+            &-icon {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+
+        @media screen and (max-width: $tabletsScreen) {
+          width: 100%;
+          text-align: left;
+        }
+      }
+
+      @media screen and (max-width: $tabletsScreen) {
+        width: 100%;
+        margin-bottom: 30px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    @media screen and (max-width: $tabletsScreen) {
+      @include flex();
+      flex-direction: column;
+    }
+  }
+
+  &__copyright {
+    width: 100%;
+
+    p {
+      @include font("Montserrat-Regular", 12px, 400);
+      text-align: end;
+      padding-bottom: 5px;
+
+      a {
+        text-decoration: underline;
+      }
+
+      @media screen and (max-width: $tabletsScreen) {
+        text-align: start;
+      }
+    }
+
+    @media screen and (max-width: $tabletsScreen) {
+      margin-bottom: 30px;
+    }
+  }
+}
